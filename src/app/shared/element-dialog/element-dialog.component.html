@@ -1,0 +1,21 @@
+<h1 *ngIf="!isChange" mat-dialog-title>Create Employee</h1>
+<h1 *ngIf="isChange" mat-dialog-title>Update Employee</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input matInput [(ngModel)]="data.employee_name">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Salario</mat-label>
+    <input matInput [(ngModel)]="data.employee_salary">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Idade</mat-label>
+    <input matInput [(ngModel)]="data.employee_age">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button *ngIf="!isChange" mat-button [mat-dialog-close]="data" cdkFocusInitial>Confirmar</button>
+  <button *ngIf="isChange" mat-button [mat-dialog-close]="data" cdkFocusInitial>Editar</button>
+</div>
